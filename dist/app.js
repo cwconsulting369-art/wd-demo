@@ -101,6 +101,52 @@
     } else {
       document.querySelectorAll(".rise").forEach(function (el) { el.classList.add("in"); });
     }
+
+    var form = document.getElementById("cform");
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        var msg = document.getElementById("cf-msg");
+        msg.className = "cform__msg";
+        msg.textContent = "";
+        btn.disabled = true;
+        btn.textContent = "Wird gesendet …";
+
+        var payload = {
+          name: form.name.value.trim(),
+          email: form.email.value.trim(),
+          phone: form.phone.value.trim(),
+          message: form.message.value.trim(),
+          website: form.website.value
+        };
+
+        fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        })
+          .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+          .then(function (res) {
+            if (res.ok) {
+              msg.classList.add("is-ok");
+              msg.textContent = "Danke! Ihre Nachricht wurde gesendet, wir melden uns zeitnah.";
+              form.reset();
+            } else {
+              msg.classList.add("is-err");
+              msg.textContent = res.data && res.data.error ? res.data.error : "Senden fehlgeschlagen. Bitte versuchen Sie es später erneut.";
+            }
+          })
+          .catch(function () {
+            msg.classList.add("is-err");
+            msg.textContent = "Senden fehlgeschlagen — bitte prüfen Sie Ihre Verbindung oder schreiben Sie direkt an wohnen-design@t-online.de.";
+          })
+          .finally(function () {
+            btn.disabled = false;
+            btn.textContent = "Nachricht senden";
+          });
+      });
+    }
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);

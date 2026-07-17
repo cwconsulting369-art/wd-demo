@@ -24,7 +24,7 @@
       <a href="#marken">Marken</a>
       <a href="#standort">Standort</a>
     </nav>
-    <a class="btn" href="mailto:wohnen-design@t-online.de">Beratung anfragen</a>
+    <a class="btn" href="#kontaktformular">Beratung anfragen</a>
     <button type="button" class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav">
       <span></span><span></span><span></span>
     </button>
@@ -52,7 +52,7 @@
       fachlicher Beratung.
     </p>
     <div class="hero__cta">
-      <a class="btn btn--brass" href="mailto:wohnen-design@t-online.de">Beratungstermin vereinbaren</a>
+      <a class="btn btn--brass" href="#kontaktformular">Beratungstermin vereinbaren</a>
       <a class="btn btn--ghost" href="#leistungen" style="color:#fff">Leistungen entdecken</a>
     </div>
   </div>
@@ -229,6 +229,44 @@
         </div>
       </a>
     </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ Kontaktformular ══════════════════════════════ -->
+<section class="sec sec--paper" id="kontaktformular">
+  <div class="wrap-narrow">
+    <div class="sec__head center rise">
+      <span class="eyebrow center">Beratung anfragen</span>
+      <h2>Schreiben Sie uns</h2>
+      <p class="sec__sub">Wir melden uns in der Regel innerhalb eines Werktags zurück.</p>
+    </div>
+    <form class="cform rise" id="cform">
+      <input type="text" name="website" id="cf-website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+      <div class="cform__row">
+        <div class="cform__field">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" required autocomplete="name">
+        </div>
+        <div class="cform__field">
+          <label for="cf-email">E-Mail</label>
+          <input type="email" id="cf-email" name="email" required autocomplete="email">
+        </div>
+      </div>
+      <div class="cform__field">
+        <label for="cf-phone">Telefon (optional)</label>
+        <input type="tel" id="cf-phone" name="phone" autocomplete="tel">
+      </div>
+      <div class="cform__field">
+        <label for="cf-message">Ihre Nachricht</label>
+        <textarea id="cf-message" name="message" required></textarea>
+      </div>
+      <p class="cform__note">
+        Diese Anfrage geht an AEVUM (Ersteller dieses Entwurfs) und wird nicht automatisch an
+        Wohnen + Design weitergeleitet — mehr dazu in der <a href="datenschutz.html">Datenschutzerklärung</a>.
+      </p>
+      <button type="submit" class="btn btn--brass">Nachricht senden</button>
+      <div class="cform__msg" id="cf-msg" role="status" aria-live="polite"></div>
+    </form>
   </div>
 </section>
 

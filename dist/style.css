@@ -225,6 +225,25 @@ p { margin: 0 0 1em; }
 .map-card__cta { text-align: center; color: #fff; padding: var(--s8); }
 .map-card__cta b { font-family: var(--display); font-size: var(--t-xl); display: block; margin-bottom: var(--s2); }
 
+/* ============================================================ Kontaktformular */
+.cform { background: var(--white); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--sh-md); padding: var(--s8); }
+.cform__row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); }
+.cform__field { display: flex; flex-direction: column; gap: 6px; margin-bottom: var(--s4); }
+.cform__field label { font-size: var(--t-xs); font-weight: 600; letter-spacing: .04em; color: var(--ink-3); text-transform: uppercase; }
+.cform input, .cform textarea {
+  font-family: var(--sans); font-size: var(--t-base); color: var(--ink);
+  border: 1px solid var(--line); border-radius: var(--r-md); padding: 12px 14px;
+  background: var(--paper); transition: border-color .2s var(--ease), background .2s var(--ease);
+}
+.cform input:focus, .cform textarea:focus { outline: none; border-color: var(--brass); background: var(--white); }
+.cform textarea { resize: vertical; min-height: 110px; font-family: var(--sans); }
+.cform__note { font-size: var(--t-xs); color: var(--ink-3); margin: var(--s2) 0 var(--s4); }
+.cform__msg { font-size: var(--t-sm); margin-top: var(--s3); display: none; padding: 10px 14px; border-radius: var(--r-md); }
+.cform__msg.is-ok { display: block; background: rgba(169,137,94,.14); color: var(--brass-dk); }
+.cform__msg.is-err { display: block; background: rgba(180,60,50,.1); color: #a33a2d; }
+.cform button[type="submit"] { width: 100%; border: none; cursor: pointer; }
+.cform button[type="submit"]:disabled { opacity: .6; cursor: default; transform: none; }
+
 /* ============================================================ Pitch-Banner */
 .pitch {
   position: fixed; inset: auto 0 0 0; z-index: 95;
@@ -270,6 +289,7 @@ p { margin: 0 0 1em; }
   .story { grid-template-columns: 1fr; gap: var(--s12); }
   .trust__grid { grid-template-columns: repeat(2, 1fr); gap: var(--s6) var(--s4); }
   .contact { grid-template-columns: 1fr; gap: var(--s12); }
+  .cform__row { grid-template-columns: 1fr; }
   .ft__grid { grid-template-columns: 1fr 1fr; gap: var(--s8); }
   .gal { grid-template-columns: repeat(3, 1fr); }
   .brands { columns: 2; }
