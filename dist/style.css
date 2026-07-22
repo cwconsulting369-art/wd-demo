@@ -223,6 +223,19 @@ p { margin: 0 0 1em; }
 .brand-tile--feat { border-color: rgba(169,137,94,.5); color: var(--brass-dk); font-weight: 600; }
 .brand-tile--feat::before { opacity: .9; }
 
+/* Marken — echte Herstellerlogos statt Typografie-Pill */
+.brand-tile--logo { padding: 8px 18px; }
+.brand-tile--logo::before { display: none; }
+.brand-tile--logo img {
+  display: block; height: 22px; max-width: 132px; width: auto;
+  object-fit: contain; object-position: center;
+}
+.brand-tile--logo.brand-tile--feat { background: var(--white); }
+/* Einzelne Logos liefern nur eine weiße Variante (kein dunkles Pendant auffindbar) —
+   bekommen einen dunklen Chip, damit sie nicht unsichtbar werden. */
+.brand-tile--logo-invert { background: var(--ink); border-color: var(--ink); }
+.brand-tile--logo-invert:hover { background: var(--ink); border-color: var(--brass); }
+
 /* Marken — laufendes Logo-/Namensband (Marquee) */
 .marquee {
   overflow: hidden; width: 100%; min-width: 0; margin: 0 -2px; padding: 2px;
@@ -428,6 +441,8 @@ p { margin: 0 0 1em; }
   .hero__cta .btn { flex: 1; }
   .gal { grid-template-columns: repeat(2, 1fr); gap: var(--s2); }
   .brand-tile { padding: 9px 15px; font-size: var(--t-xs); }
+  .brand-tile--logo { padding: 7px 14px; }
+  .brand-tile--logo img { height: 18px; max-width: 104px; }
   .ft__grid { grid-template-columns: 1fr; gap: var(--s8); }
   .cinfo a, .ft ul a { display: inline-block; padding: 8px 0; }
   .pitch { font-size: 11px; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); }
